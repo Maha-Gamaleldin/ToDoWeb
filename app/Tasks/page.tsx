@@ -1,7 +1,10 @@
 import React from 'react'
+import { Task, tasksList } from '@/Types/Task';
+import TaskItem from './TaskItem';
+
+const tasks: Task[] = tasksList;
 
 export default function Tasks() {
-  const tasks = ["task1", "task2", "task3", "task4", "task5"];
 
   return (
     <div>
@@ -9,8 +12,7 @@ export default function Tasks() {
       <h1>Tasks</h1>
       <ul>
         { tasks.map((task, index) => (
-          <li key = {index} > {task} 
-          </li>
+          <TaskItem key={task.taskId} task={task} />
         ))}
       </ul>
     </div>

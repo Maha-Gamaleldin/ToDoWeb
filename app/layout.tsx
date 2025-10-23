@@ -29,12 +29,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div>
-          <Link href={"/"}>Home</Link>
-          <Link href={"/Login"}>Login</Link>
-          <Link href={"/Signup"}>Signup</Link>
-          <Link href={"/NewTask"}>New Task</Link>
-          <Link href={"/TaskDetails"}>Task Details</Link>
-          <Link href={"/Tasks"}>Tasks</Link>
+          <Link href={"/"}>Home  </Link>
+          <Link href={"/Tasks"}>  Tasks  </Link>
+          <Link href={"/NewTask"}>  New Task  </Link>
+          <Link href={"/Login"}>  Login  </Link>
+          <Link href={"/Signup"}>  Signup</Link>
         </div>
         {children}
       </body>
