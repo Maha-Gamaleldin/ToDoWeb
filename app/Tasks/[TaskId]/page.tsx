@@ -1,5 +1,7 @@
 import React from 'react'
 import { Task, tasksList } from '@/Types/Task';
+import { createClient } from '@/Utils/Supabase/server';
+
 
 interface TaskDetailsProps {
   params: {
@@ -9,13 +11,28 @@ interface TaskDetailsProps {
 
 
 export default async function TaskDetails({ params }: TaskDetailsProps) {
-    const { TaskId } = await params;
-    const allTasks: Task[] = tasksList
-    console.log(TaskId);
-    const numberValue = Number(TaskId); 
-    const task = allTasks.find((t) => t.taskId === numberValue);
+  const supabase = await createClient();
+  
+  const { TaskId } = await params;
+  const allTasks: Task[] = tasksList
+  console.log(TaskId);
+  const numberValue = Number(TaskId); 
+
+  const { data, error } = await supabase
+  .from('task')
+  .select('*')
+  .eq('taskId', numberValue)
+  .single();
+  
+  if (error) {
+    return <div>Task not found ❌ id= {TaskId}</div>;
+
+  } 
+  const task: Task = data;
+  
+  //const task = allTasks.find((t) => t.taskId === numberValue);
     
-    if (!task) {
+  if (!task) {
     return <div>Task not found ❌ id= {TaskId}</div>;
 }
 

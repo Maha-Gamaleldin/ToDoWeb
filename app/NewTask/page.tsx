@@ -1,7 +1,8 @@
 import React from 'react'
+import NewTaskForm from './NewTaskForm';
 
 export default function NewTask() {
   return (
-    <div>new task</div>
+    <NewTaskForm/>
   );
 }

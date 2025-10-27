@@ -6,7 +6,7 @@ export interface Task {
   taskDescription: string;
   isDone: boolean;
 }
-export const tasksList: Task[] = [
+export var tasksList: Task[] = [
   {
     taskId: 1,
     title: 'Buy groceries',
